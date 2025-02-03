@@ -1,0 +1,7 @@
+{
+    "href": "https://url.com/api/stac/test/",
+    "solr": "http://ip:port/suche/stac_test",
+    "catalog_id": "my-catalog-test",
+    "title": "Organisation Test Katalog ",
+    "catalog_description": "This is my test Catalog containing ..."
+}

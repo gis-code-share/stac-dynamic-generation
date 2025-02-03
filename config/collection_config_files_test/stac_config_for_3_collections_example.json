@@ -1,0 +1,100 @@
+{
+    "collection_template": {
+        "ignore_collection": false,
+        "overwrite_existing_collection": true,
+        "coll_tabelle_where": " ",
+        "coll_id": " ",
+        "coll_description": " ",
+        "coll_title": " ",
+        "coll_table": "my_db_schema.\"MY_TABLE\"",
+        "coll_table_attributes": {
+            "geometry": "ST_Transform(ST_GeometryN(geom, 1), 4326)",
+            "srid": "example_table_column_containing_srid",
+            "id": "example_table_column_containing_id",
+            "item:start_datetime": "example_table_column_containing_item_start_datetime",
+            "item:end_datetime": "...",
+            "item:sensor": "...",
+            "item:los_name": "...",
+            "folder": "...",
+            "filename": "..."
+        },
+        "coll_bs_date_format": "%y/%m",
+        "coll_keywords": [
+            "keywords",
+            "describing",
+            "collection"
+        ],
+        "coll_providers": [
+            {
+                "id": "myOrganisation",
+                "name": "My Organisation",
+                "description": "My Organisation is ...",
+                "roles": [
+                    "HOST",
+                    "PROCESSOR",
+                    "LICENSOR"
+                ],
+                "url": "https://homepage.com"
+            },
+            {
+                "id": "secondOrganisation",
+                "name": "Second Organisation",
+                "description": "This other organisation is responsible for ...",
+                "roles": [
+                    "PRODUCER"
+                ],
+                "url": "https://homepage.com"
+            }
+        ],
+        "coll_license": "CC-BY-4.0",
+        "extensions": [
+            "https://stac-extensions.github.io/projection/v1.0.0/schema.json"
+        ],
+        "assets": [
+            {
+                "id_format": "{id}_DOM",
+                "file_name_format": "{id}_DOM",
+                "url": "https://url_to_asset/{folder}{filename}DOM.tif",
+                "filetype": ".tif",
+                "title": "{id}_DOM",
+                "roles": [
+                    "data"
+                ],
+                "description": "Digitales Oberflächenmodell (DOM/DSM)",
+                "mediatype": "image/tiff; application=geotiff"
+            },
+            {
+                "id_format": "{id}_DGM",
+                "file_name_format": "{id}_DGM",
+                "url": "https://url_to_asset/ogd/Hoehe/ALSII/{folder}{filename}DGM.tif",
+                "filetype": ".tif",
+                "title": "{id}_DGM",
+                "roles": [
+                    "data"
+                ],
+                "description": "Digitales Geländemodell (DGM/DTM)",
+                "mediatype": "image/tiff; application=geotiff"
+            }
+        ]
+    },
+    "collections": [
+        { 
+            "coll_tabelle_where": "SQL WHERE STATEMENT - e.g. tb = 5000 and archivnr = 'A2023250' and resource_path is not null",
+            "coll_id": "coll_example_collection_1",
+            "coll_description": "Example Collection 1 contains ...",
+            "coll_title": "Example Collection 1"
+        },
+        { 
+            "coll_tabelle_where": "SQL WHERE STATEMENT - e.g. tb = 5000 and archivnr = 'A2023254' and resource_path is not null",
+            "coll_id": "coll_example_collection_2",
+            "coll_description": "Example Collection 2 contains ...",
+            "coll_title": "Example Collection 2"
+        },
+        { 
+            "coll_tabelle_where": "SQL WHERE STATEMENT - e.g. tb = 5000 and archivnr = 'A2023255' and resource_path is not null",
+            "coll_id": "coll_example_collection_3",
+            "coll_description": "Example Collection 3 contains ...",
+            "coll_title": "Example Collection 3"
+        }
+    ]
+}

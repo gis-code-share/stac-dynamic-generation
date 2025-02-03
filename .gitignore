@@ -1,0 +1,7 @@
+/.vscode
+/auth_data
+key.json
+new_ingest_drone.txt
+/config_local
+/deletion
+test_asset_urls.py
