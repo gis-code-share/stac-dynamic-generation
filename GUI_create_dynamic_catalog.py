@@ -6,7 +6,7 @@ from customtkinter import CTkButton, CTkCheckBox, CTk, CTkFrame, CTkScrollableFr
 all_files = []
 
 directory = os.path.dirname(os.path.realpath(__file__))
-config_directory = "\\config"
+config_directory = "\\config_local"
 
 with open(directory + config_directory + "\\misc_config.json") as f:
     misc_config = json.load(f)

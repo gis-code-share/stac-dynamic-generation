@@ -20,9 +20,9 @@ import logging
 
 read_parent_catalog = True
 generate_test_node = False
-use_key_for_decryption = False
+use_key_for_decryption = True
 directory = os.path.dirname(os.path.realpath(__file__))
-config_directory = "\\config"
+config_directory = "\\config_local"
 
 # Misc Config read (logging_filepath) 
 with open(directory + config_directory + "\\misc_config.json") as f:
