@@ -337,7 +337,9 @@ def tidy_up_collection_links(collection: pystac.Collection):
     return collection
 
 def tidy_up_catalog_links(catalog: pystac.Catalog):
-    links = [pystac.Link("data", parent_catalog_config["href"] + "collections", media_type= "application/json", title= "Get all collections of this catalog"),
+    links = [
+            pystac.Link("prov", parent_catalog_config["provider_website"], media_type= "text/html", title= parent_catalog_config["provider_website_title"]),
+            pystac.Link("data", parent_catalog_config["href"] + "collections", media_type= "application/json", title= "Get all collections of this catalog"),
             pystac.Link("service-desc", parent_catalog_config["href"] + "api", media_type= "application/vnd.oai.openapi+yaml;version=3.0", title= "OpenAPI Description YAML"),
             pystac.Link("service-doc",  parent_catalog_config["href"] + "api.html", media_type= "text/html", title= "STAC API OPENAPI Documentation HTML"),
             pystac.Link("conformance", parent_catalog_config["href"] + "conformance", media_type= "application/json", title= "STAC conformance classes implemented by this server"),

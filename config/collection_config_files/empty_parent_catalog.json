@@ -3,5 +3,7 @@
     "solr": "http://ip:port/suche/stac",
     "catalog_id": "my-catalog",
     "title": "Organisation Katalog",
-    "catalog_description": "This is my Catalog containing ..."
+    "catalog_description": "This is my Catalog containing ...",
+    "provider_website": "https:/website/",
+    "provider_website_title": "Website Title"
 }
