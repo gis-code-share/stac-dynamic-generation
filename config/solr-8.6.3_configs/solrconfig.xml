@@ -1,0 +1,104 @@
+
+  <!-- 
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                                                      STAC FASTAPI REQUESTHANDLERS
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
+  -->
+
+<requestHandler name="/kagis-catalog" class="solr.SearchHandler">
+<lst name="defaults">
+      <str name="echoParams">explicit</str>
+      <int name="rows">10000</int>
+      <str name="df">text</str>
+      <str name="sort">score desc</str>
+      <str name="q">*:*</str>
+      <str name="fl">*</str>
+      <str name="lowercaseOperators">true</str>
+      <str name="stopwords">true</str>
+      <str name="q.op">AND</str>
+      <str name="defType">edismax</str>
+      <str name="wt">json</str>
+      <str name="qf"></str> 
+      <str name="fq">type:Catalog</str>
+</lst>
+<lst name="invariants">
+  <str name="omitHeader">true</str>
+</lst>
+</requestHandler>
+
+<requestHandler name="/kagis-catalog/search" class="solr.SearchHandler">
+<lst name="defaults">
+      <str name="echoParams">explicit</str>
+      <int name="rows">10000</int>
+      <str name="df">text</str>
+      <str name="sort">datetime desc</str>
+      <str name="q">*:*</str>
+      <str name="fl">*</str>
+      <str name="lowercaseOperators">true</str>
+      <str name="stopwords">true</str>
+      <str name="q.op">AND</str>
+      <str name="defType">edismax</str>
+      <str name="wt">geojson</str>
+      <str name="geojson.field">bbox</str>
+      <str name="qf"></str> 
+      <str name="fq">type:Feature</str>
+</lst>
+<lst name="invariants">
+  <str name="omitHeader">true</str>
+</lst>
+</requestHandler>
+
+<requestHandler name="/kagis-catalog/collections" class="solr.SearchHandler">
+<lst name="defaults">
+      <str name="echoParams">explicit</str>
+      <int name="rows">10000</int>
+      <str name="df">text</str>
+      <str name="sort">score desc</str>
+      <str name="q">*:*</str>
+      <str name="fl">*</str>
+      <str name="lowercaseOperators">true</str>
+      <str name="stopwords">true</str>
+      <str name="q.op">AND</str>
+      <str name="defType">edismax</str>
+      <str name="wt">geojson</str>
+      <str name="geojson.field">bbox</str>
+      <str name="qf"></str> 
+      <str name="fq">type:Collection</str>
+</lst>
+<lst name="invariants">
+  <str name="omitHeader">true</str>
+</lst>
+</requestHandler>
+
+<requestHandler name="/kagis-catalog/searchpost" class="solr.SearchHandler">
+<lst name="defaults">
+      <str name="echoParams">explicit</str>
+      <int name="rows">10000</int>
+      <str name="df">text</str>
+      <str name="sort">datetime desc</str>
+      <str name="q">*:*</str>
+      <str name="fl">*</str>
+      <str name="lowercaseOperators">true</str>
+      <str name="stopwords">true</str>
+      <str name="q.op">AND</str>
+      <str name="defType">edismax</str>
+      <str name="wt">geojson</str>
+      <str name="geojson.field">bbox</str>
+      <str name="qf"></str> 
+      <str name="fq">type:Feature</str>
+</lst>
+<lst name="invariants">
+  <str name="omitHeader">false</str>
+</lst>
+</requestHandler>
+
+
+<!-- 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                                                     STAC FASTAPI END
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
+-->

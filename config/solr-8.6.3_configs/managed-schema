@@ -1,0 +1,60 @@
+<!-- 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                                                      STAC CORE
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
+-->
+<schema name="ogc-stac" version="1.6">
+
+<!-- generelle felder -->
+<field name="uniqueid" type="string" indexed="true" stored="true" required="true" multiValued="false"/>
+<field name="id" type="string" indexed="true" stored="true" required="true" multiValued="false"/>
+<field name="datetime" type="pdate" indexed="false" stored="true" multiValued="true"/>
+<field name="daterange" type="datetimerange" indexed="true" stored="true" multiValued="true"/>
+
+<field name="bbox" type="rptgeom_wgs" indexed="true" multiValued="false" stored="true" />
+<field name="type" type="string" indexed="true" multiValued="false" omitNorms="true" omitPositions="true" omitTermFreqAndPositions="true" stored="true" termVectors="false" />  
+
+<!-- collection felder -->
+<field name="title" type="text_general" indexed="true" stored="true"/>
+<field name="description" type="text_general" indexed="true" stored="true"/>
+<field name="keywords" type="text_general" indexed="true" stored="true" multiValued="true"/>
+<field name="json_string" type="json" indexed="false" stored="true" multiValued="false"/>
+
+<!-- item felder -->
+<field name="collection" type="text_general" indexed="true" stored="true"/>
+
+<fieldType name="rptgeom_wgs" class="solr.RptWithGeometrySpatialField" spatialContextFactory="JTS" geo="true" format="WKT" autoIndex="true" validationRule="repairBuffer0" distErrPct="0.15" maxDistErr="0.001" distanceUnits="degrees"/>
+<uniqueKey>uniqueid</uniqueKey>
+<fieldType name="json" class="solr.TextField">
+  <analyzer>
+    <tokenizer class="solr.StandardTokenizerFactory"/>
+    <filter class="solr.LowerCaseFilterFactory"/>
+  </analyzer>
+</fieldType>
+
+<fieldType name="pdate" class="solr.DatePointField" docValues="true"/>
+<fieldType name="string" class="solr.StrField" sortMissingLast="true" />
+<fieldType name="bbox" class="solr.BBoxField" numberType="pdouble"/>
+<fieldType name="date_type" class="solr.DatePointField" />
+<fieldType name="datetimerange" class="solr.DateRangeField"/>
+<fieldType name="text_general" class="solr.TextField" positionIncrementGap="100">
+  <analyzer type="index">
+    <tokenizer class="solr.StandardTokenizerFactory"/>
+    <filter class="solr.LowerCaseFilterFactory"/>
+  </analyzer>
+  <analyzer type="query">
+    <tokenizer class="solr.StandardTokenizerFactory"/>
+    <filter class="solr.LowerCaseFilterFactory"/>
+  </analyzer>
+</fieldType>
+
+
+<!-- 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                                                     STAC CORE END
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
+-->
