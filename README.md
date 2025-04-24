@@ -1,4 +1,4 @@
-# Dynamic _Spatial Temporal Asset Catalog_ (STAC) Generation
+# Dynamic _Spatial Temporal Asset Catalog_ (STAC) Generation using PyStac and Apache Solr
 
 ## Table of Contents
 - [Introduction](#introduction)
@@ -9,7 +9,7 @@
   - [Output](#output)
 
 ## Introduction
-This documentation focuses on the generation of a dynamic [STAC](https://stacspec.org/en) (SpatioTemporal Asset Catalog) using a Python script called [`create_dynamic_catalog.py`](create_dynamic_catalog.py) using the [`pystac`](https://pystac.readthedocs.io/en/stable/) library.
+This documentation focuses on the generation of a dynamic [STAC](https://stacspec.org/en) (SpatioTemporal Asset Catalog) using a Python script called [`create_dynamic_catalog.py`](create_dynamic_catalog.py) using the [`pystac`](https://pystac.readthedocs.io/en/stable/) library. The STAC data is ingested into a Apache Solr Node (Solr related information is included in [serparate readme](config/solr-8.6.3_configs/README.md)).
 
 Because the script generates the dynamic catalog based on configuration files, it relies heavily on these predefined JSON files.
 - [`auth_data/conf.json`](config/auth_data/conf.json) defines information about the database connection - add your information in the template. The script has a flag _use_key_for_decryption_ which controlls whether to decrypt this config file using a key or not (default False).
