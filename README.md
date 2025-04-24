@@ -1,5 +1,5 @@
 # Dynamic _Spatial Temporal Asset Catalog_ (STAC) Generation using PyStac and Apache Solr
-
+[Link to STAC Solr FastAPI project](https://github.com/gis-code-share/stac-solr-fastapi)
 ## Table of Contents
 - [Introduction](#introduction)
 - [Workflow for Generation](#workflow-for-generation)
